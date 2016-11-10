@@ -9,6 +9,7 @@
       </button>
       <a class="navbar-brand" href="/">Jungle</a>
     </div>
+    <div class="user-info"></div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -25,6 +26,8 @@
             <% end %>
           </ul>
         </li>
+        <li><%= link_to 'Login', :login %></li>
+        <li><%= link_to 'Sign Up', :signup %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
        <li class="dropdown">
