@@ -4,7 +4,11 @@
     <h1>My Cart</h1>
   </header>
 
-  <% unless cart_total = 0 %>
+  <% if cart.length == 0 %>
+    <div>
+    <span>Your cart is empty. Please buy something. Return to <%= link_to 'homepage', :root %>.</span>
+  </div>
+  <% else %>
 
   <div class="panel panel-default items">
     <table class="table table-bordered">
@@ -51,8 +55,6 @@
       <% end %>
     </div>
   </div>
+
   <% end %>
-  <div>
-    <span>Your cart is empty. Please buy something. Return to <%= link_to 'homepage', :root %>.</span>
-  </div>
 </section>
