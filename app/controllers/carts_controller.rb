@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
 
   def show
-    item["quantity"] = 0
   end
 
   def add_item
