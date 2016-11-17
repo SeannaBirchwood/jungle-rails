@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      redirect_to [:order], notice: 'Your Order has been placed.'
       UserMailer.thankyou_email(@user).deliver_later
 
     else

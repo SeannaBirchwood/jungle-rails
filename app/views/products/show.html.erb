@@ -24,7 +24,22 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
-    </div>
+      If !user, disable form
+      If current_user_id matches user_id associated with comment, enable delete function.
+      <div>
+        <%= form_for [@product, @comment] do |f| %>
+        <%= f.text_area :description %>
+        <%= f.select :rating, options_for_select([[1], [2], [3], [4], [5]]) %> Stars
+        <%= f.submit "Create"%>
+        <% end %>
+      </div>
+      <div class="col-sm-8">
+        <dl class="dl-vertical">
+          <dd><%"Username should be here when the user_id is being validated again"%></dd>
+          <dd><%= render "comments" %></dd>
+        </dl>
+      </div>
+
 
   </article>
 

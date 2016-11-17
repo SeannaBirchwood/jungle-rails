@@ -1,0 +1,13 @@
+<% @comments.reverse.each do |comment| %>
+
+  <tr>
+    <td>
+      <h4>Username</h4>
+      <p><%= comment.description %></p>
+    </td>
+    <td>
+      Rated <%= comment.rating %> Stars!
+    <br />
+    </td>
+  </tr>
+<% end %>
