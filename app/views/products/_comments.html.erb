@@ -2,12 +2,16 @@
 
   <tr>
     <td>
-      <h4>Username</h4>
-      <p><%= comment.description %></p>
+      <p><%= comment.content %></p>
     </td>
     <td>
       Rated <%= comment.rating %> Stars!
     <br />
+    </td>
+    <td>
+    <% if current_user %>
+      <%= button_to 'Delete', product_comment_path(@product, comment), action: 'destroy', id:comment.id, method: :delete %>
+    <% end %>
     </td>
   </tr>
 <% end %>

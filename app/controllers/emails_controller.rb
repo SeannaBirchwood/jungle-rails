@@ -21,3 +21,7 @@ class EmailsController < ApplicationController
     end
     
 end
+
+# UserMailer.thankyou_email(@user).deliver_later
+#             respond_to do |format|
+#                 format.html {redirect_to '/', notice: 'Order is confirmed'}

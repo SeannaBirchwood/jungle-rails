@@ -2,6 +2,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @line_items = @order.line_items
+
+    @order_total = 0
   end
 
   def create
@@ -12,7 +15,7 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
       redirect_to [:order], notice: 'Your Order has been placed.'
-      UserMailer.thankyou_email(@user).deliver_later
+      UserMailer.thankyou_email(order).deliver_later
 
     else
       redirect_to cart_path, error: order.errors.full_messages.first
@@ -56,7 +59,7 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
-    @order = order
+    order
 
   end
 

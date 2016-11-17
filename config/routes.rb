@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products, only: [:index, :show] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   
   resources :categories, only: [:show]
@@ -19,10 +19,13 @@ Rails.application.routes.draw do
   #   put :add_user
   # end
 
+  get'/index' => 'products#index'
+
   get '/signup' => 'users#new'
   get '/users' => 'users#new'
   post '/users' => 'users#create'
   post '/products/:product_id/comments(.:format)' => 'comments#create'
+  delete '/products/:product_id/comments(.:format)' => 'comments#destroy'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
