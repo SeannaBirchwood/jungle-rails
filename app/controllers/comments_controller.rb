@@ -24,14 +24,6 @@ class CommentsController < ApplicationController
     redirect_to product_path(params[:product_id]), notice: "Comment was deleted."
   end
 
-  def average_rating
-    if self.comments.size > 0
-      self.comments.average(;rating)
-    else
-      'undefined'
-    end
-  end
-
   private
 
   def comment_params
