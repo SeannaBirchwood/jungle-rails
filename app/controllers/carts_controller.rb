@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
 
   def show
+  product_id = params[:product_id]
+  @cart_item = cart[product_id]
   end
 
   def add_item

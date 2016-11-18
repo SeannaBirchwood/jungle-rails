@@ -10,12 +10,11 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-    @user.email = UserMailer.all
 
     if order.valid?
       empty_cart!
-      redirect_to [:order], notice: 'Your Order has been placed.'
       UserMailer.thankyou_email(order).deliver_later
+      redirect_to root_path, notice: 'Your Order has been placed.'
 
     else
       redirect_to cart_path, error: order.errors.full_messages.first

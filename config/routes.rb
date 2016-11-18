@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, except: [:edit, :update, :show, :destroy]
+  
+    get '/categories/new' => 'categories#new'
   end
 
 

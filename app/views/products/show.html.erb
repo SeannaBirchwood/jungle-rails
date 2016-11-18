@@ -23,7 +23,8 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
           <dt>Avg. Rating</dt>
-          <dd><%= "Average Rating Calculation in Stars" %></dd>
+          <dd><%=@product.average_rating %></dd>
+
         </dl>
       </div>
           <% if current_user %>
